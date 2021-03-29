@@ -1,0 +1,1020 @@
+﻿<Window x:Class="WpfKeyboardSimulatorApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfKeyboardSimulatorApp"
+        mc:Ignorable="d"
+        Title="Keyboard Simulator" MinHeight="400" MinWidth="700" Height="450" Width="800"  Keyboard.KeyDown="Window_KeyDown_1">
+   
+    <Grid  x:Name="BaseGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Label  Height="25" Name="SpeedLabel" Content="Speed 0 chars / min"/>
+            <Label  Height="25" x:Name="ErorCountLabel" Grid.Column="1" Content="False : 0"/>
+            <Label  Height="25" HorizontalContentAlignment="Left" Grid.Column="2" Name="DificultLabel"  DockPanel.Dock="Left">Dificult : Beginner</Label>
+            <Slider  Height="25" TickPlacement="BottomRight" TickFrequency="1"  Grid.Column="3" x:Name="SliderDificult" ValueChanged="SliderDificult_ValueChanged" Minimum="0" Value="0" Maximum="5"  VerticalAlignment="Center"></Slider>
+
+
+            <CheckBox  Height="25" Click="CaseSensative_Click" x:Name="CaseSensative" IsChecked="True" VerticalAlignment="Center" Grid.Column="4" HorizontalAlignment="Center" Content="Case sensative" />
+
+            <Button Click="ButtonStart_Click"  x:Name="ButtonStart" Grid.Column="3"  Grid.Row="2">Start</Button>
+            <Button Click="ButtonStop_Click" x:Name="ButtonStop" Grid.Column="4" Grid.Row="1">Stop</Button>
+
+
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock  x:Name="TextBlockRead" Background="Wheat" Grid.Row="0" ></TextBlock>
+            <TextBlock  x:Name="TextBlockCheck" Background="Wheat" Grid.Row="1" ></TextBlock>
+        </Grid>
+
+
+        <Grid x:Name="FirstLineGrid"  Height="Auto" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="2*"/>
+
+            </Grid.ColumnDefinitions>
+
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="Oem3" Content="`" Grid.Column="0"/>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="D1" Content="1" Grid.Column="1"/>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="D2" Content="2" Grid.Column="2"/>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="D3" Content="3" Grid.Column="3"/>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="D4" Content="4" Grid.Column="4"/>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="D5" Content="5" Grid.Column="5"/>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="D6" Content="6" Grid.Column="6"/>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="D7" Content="7" Grid.Column="7"/>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="D8" Content="8" Grid.Column="8"/>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="D9" Content="9" Grid.Column="9"/>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="D0" Content="0" Grid.Column="10"/>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="OemMinus" Content="-" Grid.Column="11"/>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="OemPlus" Content="=" Grid.Column="12"/>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="Back" Content="Backspace" Grid.Column="13"/>
+
+            <!--<Button Name="ButtonApostrophe" Content="`" Grid.Column="0"/>
+            <Button Name="ButtonExclamationMark" Content="1" Grid.Column="1"/>
+            <Button Name="ButtonAt" Content="@" Grid.Column="2"/>
+            <Button Name="ButtonLattice" Content="#" Grid.Column="3"/>
+            <Button Name="ButtonDollar" Content="$" Grid.Column="4"/>
+            <Button Name="ButtonPercent" Content="%" Grid.Column="5"/>
+            <Button Name="ButtonCaret" Content="^" Grid.Column="6"/>
+            <Button Name="ButtonAnd" Content="&amp;" Grid.Column="7"/>
+            <Button Name="ButtonStar" Content="*" Grid.Column="8"/>
+            <Button Name="ButtonBracketOpen" Content="(" Grid.Column="9"/>
+            <Button Name="ButtonBracketClose" Content=")" Grid.Column="10"/>
+            <Button Name="Button_" Content="_" Grid.Column="11"/>
+            <Button Name="Buttonplus" Content="+" Grid.Column="12"/>
+            <Button Name="ButtonBackSpace" Content="Backspace" Grid.Column="13"/>-->
+        </Grid>
+
+        <Grid  x:Name="SecondLineGrid" Height="Auto" Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="2*"/>
+
+            </Grid.ColumnDefinitions>
+
+            <Button Background="Black" Foreground="White" BorderThickness="5"  Name="Tab" Content="Tab" Grid.Column="0">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Blue"/>
+                        <GradientStop Color="Red" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="Q" Content="Q" Grid.Column="1">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Blue"/>
+                        <GradientStop Color="Red" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="W" Content="W" Grid.Column="2">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Blue"/>
+                        <GradientStop Color="Red" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="E" Content="E" Grid.Column="3">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Blue"/>
+                        <GradientStop Color="Red" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="R" Content="R" Grid.Column="4">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Blue"/>
+                        <GradientStop Color="Red" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="T" Content="T" Grid.Column="5">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Blue"/>
+                        <GradientStop Color="Red" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="Y" Content="Y" Grid.Column="6">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Blue"/>
+                        <GradientStop Color="Red" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="U" Content="U" Grid.Column="7">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Blue"/>
+                        <GradientStop Color="Red" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="I" Content="I" Grid.Column="8">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Blue"/>
+                        <GradientStop Color="Red" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="O" Content="O" Grid.Column="9">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Blue"/>
+                        <GradientStop Color="Red" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="P" Content="P" Grid.Column="10">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Blue"/>
+                        <GradientStop Color="Red" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="OemOpenBrackets" Content="[" Grid.Column="11">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Blue"/>
+                        <GradientStop Color="Red" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="Oem6" Content="]" Grid.Column="12">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Blue"/>
+                        <GradientStop Color="Red" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button BorderThickness="4" Background="Black" Foreground="White"  Name="Oem5" Content="\" Grid.Column="13">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Blue"/>
+                        <GradientStop Color="Red" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+
+
+            <!--<Button Name="ButtonScrubOpen" Content="
+&#123;" Grid.Column="11"/>
+            <Button Name="ButtonScrubClose" Content="&#125;" Grid.Column="12"/>
+            <Button Name="ButtonVerticalBar" Content="|" Grid.Column="13"/>-->
+        </Grid>
+
+        <Grid x:Name="ThridLineGrid" Height="Auto" Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="Capital" Content = "Caps Lock" Grid.Column="0">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="A" Content = "A" Grid.Column="1">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="S" Content = "S" Grid.Column="2">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="D" Content = "D" Grid.Column="3">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="F" Content = "F" Grid.Column="4">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+
+            <!--<Button Template="{DynamicResource myButton}" Content = "F" Grid.Column="4"/>-->
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="G" Content = "G" Grid.Column="5">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="H" Content = "H" Grid.Column="6">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="J" Content = "J" Grid.Column="7">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="K" Content = "K" Grid.Column="8">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="L" Content = "L" Grid.Column="9">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="Oem1" Content = ";" Grid.Column="10">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="OemQuotes" Content = "'" Grid.Column="11">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.9,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="Return" Content = "Enter" Grid.Column="12">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+
+            <!--<Button Name="ButtonQuotes" Content = "&quot;" Grid.Column="11"/>
+            <Button Name="ButtonEnter" Content = "Enter" Grid.Column="12"/>-->
+        </Grid>
+
+        <Grid x:Name="FourthLineGrid" Height="Auto" Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="LeftShift" Grid.Column="0">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                        <GradientStop Color="LimeGreen" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+
+                <Button.Content>
+                    <DockPanel >
+                        <Label DockPanel.Dock="Right" Foreground="White" FontSize="10"  Content="!#$"/>
+                        <TextBlock Padding="10,5,20,5" >Shift</TextBlock>
+                    </DockPanel>
+                    
+                </Button.Content>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="Z" Content="Z" Grid.Column="1">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                        <GradientStop Color="LimeGreen" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="X" Content="X" Grid.Column="2">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                        <GradientStop Color="LimeGreen" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="C" Content="C" Grid.Column="3">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                        <GradientStop Color="LimeGreen" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="V" Content="V" Grid.Column="4">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                        <GradientStop Color="LimeGreen" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="B" Content="B" Grid.Column="5">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                        <GradientStop Color="LimeGreen" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="N" Content="N" Grid.Column="6">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                        <GradientStop Color="LimeGreen" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="M" Content="M" Grid.Column="7">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                        <GradientStop Color="LimeGreen" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="OemComma" Content="," Grid.Column="8">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                        <GradientStop Color="LimeGreen" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="OemPeriod" Content="." Grid.Column="9">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                        <GradientStop Color="LimeGreen" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="OemQuestion" Content="/" Grid.Column="10">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                        <GradientStop Color="LimeGreen" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White"   Name="RightShift" Content="Shift" Grid.Column="11">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                        <GradientStop Color="LimeGreen" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+
+            <!--<Button Name="ButtonMoreSign" Content="&lt;" Grid.Column="8"/>
+            <Button Name="ButtonLessSign" Content="&gt;" Grid.Column="9"/>
+            <Button Name="ButtonQuestion" Content="?" Grid.Column="10"/>
+            <Button Name="Buttonshift" Content="Shift" Grid.Column="11"/>-->
+        </Grid>
+
+        <Grid x:Name="FifthLineGrid" Height="Auto" Grid.Row="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="LeftCtrl" Content="Ctrl" Grid.Column="0"/>
+            <Button BorderBrush="Black" FontSize="20" BorderThickness="4" Background="Gray" Foreground="White" Name="LWin" Grid.Column="1">
+                <Image Source="windowButtonIcon.png"/>
+            </Button>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="System1" Content="Alt" Grid.Column="2"/>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="Space" HorizontalContentAlignment="Center" Content="Space" Grid.Column="3"/>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="System2" Content="Alt" Grid.Column="4"/>
+            <Button BorderBrush="Black" FontSize="20" BorderThickness="4" Background="Gray" Foreground="White" Name="RWin" Grid.Column="5">
+                <Image Source="windowButtonIcon.png"/>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="RightCtrl" Content="Ctrl" Grid.Column="6"/>
+        </Grid>
+
+
+    </Grid>
+
+
+    <!--<Grid KeyDown="TextBoxWrite_KeyDown" x:Name="BaseGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Label>Speed 118 chars / min</Label>
+            <Label Grid.Column="1">Fails: 7</Label>
+            <Label HorizontalContentAlignment="Left" Grid.Column="2" Name="DificultLabel"  DockPanel.Dock="Left">Dificult : Easy</Label>
+            <Slider Grid.Column="3" x:Name="SliderDificult" ValueChanged="SliderDificult_ValueChanged" Minimum="0" Value="0" Maximum="2"  VerticalAlignment="Center"></Slider>
+
+
+            <CheckBox VerticalAlignment="Center" Grid.Column="4" HorizontalAlignment="Center">Case sensative</CheckBox>
+
+            <Button Click="ButtonStart_Click" x:Name="ButtonStart" Grid.Column="3"  Grid.Row="2">Start</Button>
+            <Button Click="ButtonStop_Click" x:Name="ButtonStop" Grid.Column="4" Grid.Row="1">Stop</Button>
+
+
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock  x:Name="TextBlockRead" Background="Wheat" Grid.Row="0" ></TextBlock>
+            <TextBlock  x:Name="TextBlockCheck" Background="Wheat" Grid.Row="1" ></TextBlock>
+            <TextBox  TextChanged="TextBoxWrite_TextChanged"  KeyDown="TextBoxWrite_KeyDown"  x:Name="TextBoxWrite" Background="AliceBlue" Grid.Row="2"></TextBox>
+        </Grid>
+
+
+        <Grid x:Name="FirstLineGrid"  Height="Auto" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="2*"/>
+
+            </Grid.ColumnDefinitions>
+
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="Oem3" Content="`" Grid.Column="0"/>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="D1" Content="1" Grid.Column="1"/>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="D2" Content="2" Grid.Column="2"/>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="D3" Content="3" Grid.Column="3"/>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="D4" Content="4" Grid.Column="4"/>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="D5" Content="5" Grid.Column="5"/>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="D6" Content="6" Grid.Column="6"/>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="D7" Content="7" Grid.Column="7"/>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="D8" Content="8" Grid.Column="8"/>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="D9" Content="9" Grid.Column="9"/>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="D0" Content="0" Grid.Column="10"/>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="OemMinus" Content="-" Grid.Column="11"/>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="OemPlus" Content="=" Grid.Column="12"/>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="ButtonBackSpace" Content="Backspace" Grid.Column="13"/>
+
+            --><!--<Button Name="ButtonApostrophe" Content="`" Grid.Column="0"/>
+            <Button Name="ButtonExclamationMark" Content="1" Grid.Column="1"/>
+            <Button Name="ButtonAt" Content="@" Grid.Column="2"/>
+            <Button Name="ButtonLattice" Content="#" Grid.Column="3"/>
+            <Button Name="ButtonDollar" Content="$" Grid.Column="4"/>
+            <Button Name="ButtonPercent" Content="%" Grid.Column="5"/>
+            <Button Name="ButtonCaret" Content="^" Grid.Column="6"/>
+            <Button Name="ButtonAnd" Content="&amp;" Grid.Column="7"/>
+            <Button Name="ButtonStar" Content="*" Grid.Column="8"/>
+            <Button Name="ButtonBracketOpen" Content="(" Grid.Column="9"/>
+            <Button Name="ButtonBracketClose" Content=")" Grid.Column="10"/>
+            <Button Name="Button_" Content="_" Grid.Column="11"/>
+            <Button Name="Buttonplus" Content="+" Grid.Column="12"/>
+            <Button Name="ButtonBackSpace" Content="Backspace" Grid.Column="13"/>--><!--
+        </Grid>
+
+        <Grid  x:Name="SecondLineGrid" Height="Auto" Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="2*"/>
+
+            </Grid.ColumnDefinitions>
+
+            <Button Background="Black" Foreground="White" BorderThickness="5"  Name="Tab" Content="Tab" Grid.Column="0">              
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Blue"/>
+                        <GradientStop Color="Red" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="Q" Content="Q" Grid.Column="1">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Blue"/>
+                        <GradientStop Color="Red" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="W" Content="W" Grid.Column="2">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Blue"/>
+                        <GradientStop Color="Red" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="E" Content="E" Grid.Column="3">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Blue"/>
+                        <GradientStop Color="Red" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="R" Content="R" Grid.Column="4">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Blue"/>
+                        <GradientStop Color="Red" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="T" Content="T" Grid.Column="5">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Blue"/>
+                        <GradientStop Color="Red" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="Y" Content="Y" Grid.Column="6">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Blue"/>
+                        <GradientStop Color="Red" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="U" Content="U" Grid.Column="7">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Blue"/>
+                        <GradientStop Color="Red" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="I" Content="I" Grid.Column="8">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Blue"/>
+                        <GradientStop Color="Red" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="O" Content="O" Grid.Column="9">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Blue"/>
+                        <GradientStop Color="Red" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="P" Content="P" Grid.Column="10">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Blue"/>
+                        <GradientStop Color="Red" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="OemOpenBrackets" Content="[" Grid.Column="11">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Blue"/>
+                        <GradientStop Color="Red" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="Oem6" Content="]" Grid.Column="12">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Blue"/>
+                        <GradientStop Color="Red" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button BorderThickness="4" Background="Black" Foreground="White"  Name="Oem5" Content="\" Grid.Column="13">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Blue"/>
+                        <GradientStop Color="Red" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+
+
+            --><!--<Button Name="ButtonScrubOpen" Content="
+&#123;" Grid.Column="11"/>
+            <Button Name="ButtonScrubClose" Content="&#125;" Grid.Column="12"/>
+            <Button Name="ButtonVerticalBar" Content="|" Grid.Column="13"/>--><!--
+        </Grid>
+
+        <Grid x:Name="ThridLineGrid" Height="Auto" Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="Capital" Content = "Caps Lock" Grid.Column="0">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="A" Content = "A" Grid.Column="1">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="S" Content = "S" Grid.Column="2">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="D" Content = "D" Grid.Column="3">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="F" Content = "F" Grid.Column="4">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+
+            --><!--<Button Template="{DynamicResource myButton}" Content = "F" Grid.Column="4"/>--><!--
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="G" Content = "G" Grid.Column="5">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="H" Content = "H" Grid.Column="6">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="J" Content = "J" Grid.Column="7">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="K" Content = "K" Grid.Column="8">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="L" Content = "L" Grid.Column="9">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="Oem1" Content = ";" Grid.Column="10">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="OemQuotes" Content = "'" Grid.Column="11">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.9,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="Return" Content = "Enter" Grid.Column="12">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+
+            --><!--<Button Name="ButtonQuotes" Content = "&quot;" Grid.Column="11"/>
+            <Button Name="ButtonEnter" Content = "Enter" Grid.Column="12"/>--><!--
+        </Grid>
+
+        <Grid x:Name="FourthLineGrid" Height="Auto" Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="LeftShift" Content="Shift" Grid.Column="0">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                        <GradientStop Color="LimeGreen" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="Z" Content="Z" Grid.Column="1">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                        <GradientStop Color="LimeGreen" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="X" Content="X" Grid.Column="2">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                        <GradientStop Color="LimeGreen" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="C" Content="C" Grid.Column="3">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                        <GradientStop Color="LimeGreen" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="V" Content="V" Grid.Column="4">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                        <GradientStop Color="LimeGreen" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="B" Content="B" Grid.Column="5">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                        <GradientStop Color="LimeGreen" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="N" Content="N" Grid.Column="6">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                        <GradientStop Color="LimeGreen" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="M" Content="M" Grid.Column="7">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                        <GradientStop Color="LimeGreen" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="OemComma" Content="," Grid.Column="8">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                        <GradientStop Color="LimeGreen" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="OemPeriod" Content="." Grid.Column="9">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                        <GradientStop Color="LimeGreen" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button  FontSize="20" BorderThickness="4" Background="Black" Foreground="White"  Name="OemQuestion" Content="/" Grid.Column="10">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                        <GradientStop Color="LimeGreen" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White"   Name="RightShift" Content="Shift" Grid.Column="11">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red"/>
+                        <GradientStop Color="LimeGreen" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+
+            --><!--<Button Name="ButtonMoreSign" Content="&lt;" Grid.Column="8"/>
+            <Button Name="ButtonLessSign" Content="&gt;" Grid.Column="9"/>
+            <Button Name="ButtonQuestion" Content="?" Grid.Column="10"/>
+            <Button Name="Buttonshift" Content="Shift" Grid.Column="11"/>--><!--
+        </Grid>
+
+        <Grid x:Name="FifthLineGrid" Height="Auto" Grid.Row="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="LeftCtrl" Content="Ctrl" Grid.Column="0"/>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="LWin" Grid.Column="1">
+                <Image Source="windowButtonIcon.png"/>
+            </Button>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="AltSystem" Content="Alt" Grid.Column="2"/>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="ButtonSpace" HorizontalContentAlignment="Center" Content="Space" Grid.Column="3"/>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="AltSystem2" Content="Alt" Grid.Column="4"/>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="ButtonWindow" Grid.Column="5">
+                <Image Source="windowButtonIcon.png"/>
+            </Button>
+            <Button FontSize="20" BorderThickness="4" Background="Black" Foreground="White" Name="RightCtrl" Content="Ctrl" Grid.Column="6"/>
+        </Grid>
+
+
+    </Grid>-->
+
+
+</Window>
